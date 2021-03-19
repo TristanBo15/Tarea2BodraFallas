@@ -12,7 +12,7 @@ void PotenciasUnHilo( )  //función para obtener el cuadrado de los 500mil eleme
     for(int i=0; i<=500000; i++)
     {
         lista[i]= i*i;
-        cout<<lista[i]<<endl;
+        //cout<<lista[i]<<endl;
     }
 }
 
@@ -22,7 +22,7 @@ void PotHilo1()
     for(int i=0; i<=125000; i++)
     {
         lista[i]= i*i;
-        cout<<lista[i]<<endl;
+        //cout<<lista[i]<<endl;
     }
 }
 void PotHilo2()
@@ -30,7 +30,7 @@ void PotHilo2()
     for(int i=125001; i<=250000; i++)
     {
         lista[i]= i*i;
-        cout<<lista[i]<<endl;
+        //cout<<lista[i]<<endl;
     }
 }
 void PotHilo3()
@@ -38,7 +38,7 @@ void PotHilo3()
     for(int i=250001; i<=375000; i++)
     {
         lista[i]= i*i;
-        cout<<lista[i]<<endl;
+        //cout<<lista[i]<<endl;
     }
 }
 void PotHilo4()
@@ -46,7 +46,7 @@ void PotHilo4()
     for(int i=375001; i<=500000; i++)
     {
         lista[i]= i*i;
-        cout<<lista[i]<<endl;
+        //cout<<lista[i]<<endl;
     }
 }
 
@@ -57,10 +57,10 @@ int main() {
    t1.join();
    auto end = UnHilo.now();       // final del cronómetro
    auto time_span = static_cast<chrono::duration<double>>(end - start);   // mide el tiempo en segundos entre el inicio y final del cronómetro
-   cout<<"Tiempo de ejecucion: "<<time_span.count()<<" s";
+   cout<<"Tiempo de ejecucion con un hilo: "<<time_span.count()<<" s"<<endl;
 
-   /*chrono::steady_clock CuatroHilos;   //se define el cronómetro para el recorrido con 4 hilos
-   auto start = CuatroHilos.now();    // inicio del cronómetro
+   chrono::steady_clock CuatroHilos;   //se define el cronómetro para el recorrido con 4 hilos
+   auto inicio = CuatroHilos.now();    // inicio del cronómetro
 
    std::thread t2(PotHilo1);        //las siguientes 4 lineas corresponden a la ejecución del recorrido con 4 hilos (un hilo por linea)
    std::thread t3(PotHilo2);
@@ -69,9 +69,9 @@ int main() {
    t2.join(), t3.join(),t4.join(),t5.join();
 
 
-   auto end = CuatroHilos.now();      // final del cronómetro
-   auto time_span = static_cast<chrono::duration<double>>(end - start);   // mide el tiempo en segundos entre el inicio y final del cronómetro
-   cout<<"Tiempo de ejecucion: "<<time_span.count()<<" s";*/
+   auto final = CuatroHilos.now();      // final del cronómetro
+   auto tiempo_medio = static_cast<chrono::duration<double>>(final - inicio);   // mide el tiempo en segundos entre el inicio y final del cronómetro
+   cout<<"Tiempo de ejecucion con 4 hilos: "<<tiempo_medio.count()<<" s";
 
 
     return 0;
